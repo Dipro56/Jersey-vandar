@@ -3,6 +3,7 @@ import './HomePage.css';
 import Messi from './../../../assets/homepage_image/messi.jpg';
 import { Header } from '../../Header/Header';
 import { Banner } from '../../Banner/Banner';
+import { Footer } from '../../Footer/Footer';
 
 export const HomePage = () => {
   return (
@@ -29,6 +30,7 @@ export const HomePage = () => {
           />
         </div>
       </div>
+      <Footer />
     </>
   );
 };
