@@ -1,11 +1,16 @@
 import './App.css';
 import './bootstrap_css/bootstrap.min.css';
-import { HomePage } from './components/routes/HomePage/HomePage';
+import { HomePage } from './routes/HomePage/HomePage';
+import { LoginPage } from './routes/LoginPage/LoginPage';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <HomePage />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
     </div>
   );
 }

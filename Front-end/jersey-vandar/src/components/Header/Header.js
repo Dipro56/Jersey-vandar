@@ -22,13 +22,13 @@ export const Header = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto"></Nav>
           <Nav>
-            <Nav.Link href="#features" className="fs-5 link-color">
+            <Nav.Link href="/" className="fs-5 link-color">
               Home
             </Nav.Link>
-            <Nav.Link href="#pricing" className="fs-5 link-color">
+            <Nav.Link href="/item" className="fs-5 link-color">
               Items
             </Nav.Link>
-            <Nav.Link href="#pricing" className="fs-5 link-color">
+            <Nav.Link href="/login" className="fs-5 link-color">
               Login
             </Nav.Link>
           </Nav>

@@ -1,9 +1,10 @@
 import React from 'react';
+import { Banner } from '../../components/Banner/Banner';
+import { Footer } from '../../components/Footer/Footer';
+import { Header } from '../../components/Header/Header';
+import Messi from '../../assets/homepage_image/messi.jpg';
+
 import './HomePage.css';
-import Messi from './../../../assets/homepage_image/messi.jpg';
-import { Header } from '../../Header/Header';
-import { Banner } from '../../Banner/Banner';
-import { Footer } from '../../Footer/Footer';
 
 export const HomePage = () => {
   return (
@@ -15,7 +16,7 @@ export const HomePage = () => {
           <div>
             <h4 className="d-flex justify-content-start mt-5 mb-4">About us</h4>
             <p className="d-flex justify-content-start  align mb-5">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
+              ssLorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500s, when an unknown printer took a galley of
               type and scrambled it to make a type specimen book.
