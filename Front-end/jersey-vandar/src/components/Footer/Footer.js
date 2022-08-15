@@ -1,9 +1,9 @@
 import React from 'react';
 import './Footer.css';
-
 import { AiFillFacebook } from 'react-icons/ai';
 import { AiFillGithub } from 'react-icons/ai';
 import { AiFillInstagram } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   const d = new Date();
@@ -35,10 +35,27 @@ export const Footer = () => {
         <div className="d-flex justify-content-start align-items-center col-lg-3 col-md-4 col-sm-12   background pt-5 ps-5 pe-5">
           <div>
             <h2 className="d-flex justify-content-start mt-2 mb-2">Join us</h2>
-            <p className="d-flex justify-content-start fs-6  align ">
-              Sign up <br />
-              Sign in <br />
-              Help
+            <p>
+              <span>
+                <Link
+                  className="text-decoration-none text-black"
+                  to="/register"
+                >
+                  Sign up
+                </Link>{' '}
+              </span>{' '}
+              <br />
+              <span>
+                <Link className="text-decoration-none text-black" to="/login">
+                  Sign in
+                </Link>{' '}
+              </span>{' '}
+              <br />
+              <span>
+                <Link className="text-decoration-none text-black " to="/help">
+                  Help
+                </Link>{' '}
+              </span>{' '}
             </p>
           </div>
         </div>
