@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Header } from '../../components/Header/Header';
 import { TextField, Button } from '@mui/material';
 import logo from '../../assets/logo/jv_logo.png';
 import googleLogo from '../../assets/logo/google_logo.png';
 import { Link } from 'react-router-dom';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import cogoToast from 'cogo-toast';
 
 export const LoginPage = () => {
   const [eyeIcon, setEyeIcon] = useState('AiFillEye');
 
   const [passwordVisible, setPasswordVisible] = useState('text');
+
+  const emailRef = useRef('');
+  const passwordRef = useRef('');
 
   const handleToggle = () => {
     if (eyeIcon === 'AiFillEye') {
@@ -21,6 +25,20 @@ export const LoginPage = () => {
     }
   };
 
+  const loginFormController = (event) => {
+    event.preventDefault();
+
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+
+    if (email && password) {
+      console.log(email, password);
+      cogoToast.success(`Welcome ${email}`);
+    } else {
+      cogoToast.error('Fill input fields properly');
+    }
+  };
+
   return (
     <div>
       <Header />
@@ -28,9 +46,10 @@ export const LoginPage = () => {
         <div>
           <img src={logo} alt="" width="150" height="100" />
           <h4 className="mt-3 ">Login</h4>
-          <form>
+          <form onSubmit={loginFormController}>
             <div className="form-group mt-4 mb-3">
               <TextField
+                inputRef={emailRef}
                 id="outlined-basic"
                 label="Email"
                 variant="outlined"
@@ -43,6 +62,7 @@ export const LoginPage = () => {
 
             <div className="form-group mt-4 mb-3 d-flex">
               <TextField
+                inputRef={passwordRef}
                 id="outlined-basic"
                 label="Password"
                 variant="outlined"
