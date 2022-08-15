@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Header } from '../../components/Header/Header';
-import { TextField } from '@mui/material';
+import { TextField, Button } from '@mui/material';
 import logo from '../../assets/logo/jv_logo.png';
 import googleLogo from '../../assets/logo/google_logo.png';
 import { Link } from 'react-router-dom';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
 export const LoginPage = () => {
+  const [eyeIcon, setEyeIcon] = useState('AiFillEye');
+
+  const [passwordVisible, setPasswordVisible] = useState('text');
+
+  const handleToggle = () => {
+    if (eyeIcon === 'AiFillEye') {
+      setEyeIcon('AiFillEyeInvisible');
+      setPasswordVisible('password');
+    } else {
+      setEyeIcon('AiFillEye');
+      setPasswordVisible('text');
+    }
+  };
+
   return (
     <div>
       <Header />
@@ -26,17 +41,29 @@ export const LoginPage = () => {
               />
             </div>
 
-            <div className="form-group mt-4 mb-3">
+            <div className="form-group mt-4 mb-3 d-flex">
               <TextField
                 id="outlined-basic"
                 label="Password"
                 variant="outlined"
                 className="form-control shadow w-100"
                 name="password"
-                type="password"
+                type={passwordVisible}
                 placeholder="Password"
                 required
               />
+              <Button
+                variant="none"
+                color="primary"
+                href="#outlined-buttons"
+                onClick={handleToggle}
+              >
+                {eyeIcon === 'AiFillEye' ? (
+                  <AiFillEye size={30} className="me-2" />
+                ) : (
+                  <AiFillEyeInvisible size={30} className="me-2" />
+                )}
+              </Button>
             </div>
 
             <div>
@@ -54,6 +81,7 @@ export const LoginPage = () => {
               Submit
             </button>
           </form>
+
           {/* {errorMessage ? <p className="text-danger">{errorMessage}</p> : <></>} */}
           <div className="d-flex mt-3 mb-3">
             <hr className="w-50 ms-3 me-3" />
