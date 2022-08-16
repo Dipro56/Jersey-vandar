@@ -7,16 +7,65 @@ import { Link } from 'react-router-dom';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import cogoToast from 'cogo-toast';
 import { useFirebase } from '../../hooks/useFirebase';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { sendPasswordResetEmail } from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
+import { sendEmailVerification } from 'firebase/auth';
+import app from '../../firebase.init';
+
+const auth = getAuth(app);
 
 export const LoginPage = () => {
   const [eyeIcon, setEyeIcon] = useState('AiFillEye');
 
   const { signInWithGoogle } = useFirebase();
 
+  const [signInWithEmailAndPassword, user, error] =
+    useSignInWithEmailAndPassword(auth);
+
   const [passwordVisible, setPasswordVisible] = useState('text');
 
   const emailRef = useRef('');
   const passwordRef = useRef('');
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  let form = location.state?.form?.pathname || '/';
+
+  const verifyEmail = () =>
+    sendEmailVerification(auth.currentUser).then(() => {
+      cogoToast.info('Email verification sent');
+    });
+
+  if (user) {
+    console.log(user);
+    if (user.user.emailVerified) {
+      console.log('email verified: ', user.user.emailVerified);
+      navigate(form, { replace: true });
+      cogoToast.success(`Welcome ${user.user.email}`);
+    } else {
+      cogoToast.error(`Email not verified`);
+      verifyEmail();
+    }
+  }
+
+  if (error) {
+    cogoToast.error(`No user with this mail`);
+    console.log(error.message);
+  }
+
+  const handlePasswordReset = () => {
+    const email = emailRef.current.value;
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        console.log('email sent');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const handleToggle = () => {
     if (eyeIcon === 'AiFillEye') {
@@ -35,8 +84,8 @@ export const LoginPage = () => {
     const password = passwordRef.current.value;
 
     if (email && password) {
-      console.log(email, password);
-      cogoToast.success(`Welcome ${email}`);
+      console.log(signInWithEmailAndPassword(email, password));
+      signInWithEmailAndPassword(email, password);
     } else {
       cogoToast.error('Fill input fields properly');
     }
@@ -93,6 +142,7 @@ export const LoginPage = () => {
               <button
                 type="button"
                 className="btn btn-link fs-5 text-decoration-none "
+                onClick={handlePasswordReset}
               >
                 Forget password?
               </button>
