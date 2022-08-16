@@ -46,7 +46,7 @@ export const LoginPage = () => {
       navigate(form, { replace: true });
       cogoToast.success(`Welcome ${user.user.email}`);
     } else {
-      cogoToast.error(`Email not verified`);
+      cogoToast.error(`Mail no verifies`);
       verifyEmail();
     }
   }

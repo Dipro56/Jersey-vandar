@@ -26,7 +26,7 @@ export const useFirebase = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        // console.log(user, user.displayName);
+        console.log(user, user.displayName);
       })
       .catch((error) => {
         console.log(error);
