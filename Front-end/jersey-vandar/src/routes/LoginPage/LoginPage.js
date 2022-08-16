@@ -6,9 +6,12 @@ import googleLogo from '../../assets/logo/google_logo.png';
 import { Link } from 'react-router-dom';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import cogoToast from 'cogo-toast';
+import { useFirebase } from '../../hooks/useFirebase';
 
 export const LoginPage = () => {
   const [eyeIcon, setEyeIcon] = useState('AiFillEye');
+
+  const { signInWithGoogle } = useFirebase();
 
   const [passwordVisible, setPasswordVisible] = useState('text');
 
@@ -111,7 +114,7 @@ export const LoginPage = () => {
           <p className="fs-5">Use social login</p>
           <div className="d-flex justify-content-center">
             <img
-              // onClick={signInWithGoogle}
+              onClick={signInWithGoogle}
               src={googleLogo}
               alt=""
               width="50"

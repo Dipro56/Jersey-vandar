@@ -5,6 +5,11 @@ import logo from '../../assets/logo/jv_logo.png';
 import { Link } from 'react-router-dom';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import cogoToast from 'cogo-toast';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
+import app from '../../firebase.init';
+
+const auth = getAuth(app);
 
 export const RegistrationPage = () => {
   const [eyeIcon, setEyeIcon] = useState('AiFillEye');
@@ -45,8 +50,19 @@ export const RegistrationPage = () => {
     const confirmPassword = confirmPasswordRef.current.value;
 
     if (password === confirmPassword && email && password && confirmPassword) {
-      console.log(email, password);
-      cogoToast.success(`Welcome ${email}`);
+      if (password.length < 6) {
+        cogoToast.error('Password length must be 6');
+      } else {
+        createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            console.log('created user', user);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+        cogoToast.success('Successfully registered');
+      }
     } else {
       cogoToast.error('Password dose not match');
     }
