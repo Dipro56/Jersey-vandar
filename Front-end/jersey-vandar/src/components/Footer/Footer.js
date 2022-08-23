@@ -34,29 +34,25 @@ export const Footer = () => {
         </div>
         <div className="d-flex justify-content-start align-items-center col-lg-3 col-md-4 col-sm-12   background pt-5 ps-5 pe-5">
           <div>
-            <h2 className="d-flex justify-content-start mt-2 mb-2">Join us</h2>
-            <p>
-              <span>
-                <Link
-                  className="text-decoration-none text-black"
-                  to="/register"
-                >
-                  Sign up
-                </Link>{' '}
-              </span>{' '}
-              <br />
-              <span>
-                <Link className="text-decoration-none text-black" to="/login">
-                  Sign in
-                </Link>{' '}
-              </span>{' '}
-              <br />
-              <span>
-                <Link className="text-decoration-none text-black " to="/help">
-                  Help
-                </Link>{' '}
-              </span>{' '}
-            </p>
+            <h2 className="d-flex justify-content-start  mb-2">Join us</h2>
+            <Link
+              className="text-decoration-none text-black d-flex justify-content-start"
+              to="/register"
+            >
+              Sign up
+            </Link>{' '}
+            <Link
+              className="text-decoration-none text-black d-flex justify-content-start"
+              to="/login"
+            >
+              Sign in
+            </Link>{' '}
+            <Link
+              className="text-decoration-none text-black d-flex justify-content-start "
+              to="/help"
+            >
+              Help
+            </Link>{' '}
           </div>
         </div>
         <div className="d-flex justify-content-start align-items-center col-lg-3 col-md-4 col-sm-12   background pt-5 ps-5 pe-5">

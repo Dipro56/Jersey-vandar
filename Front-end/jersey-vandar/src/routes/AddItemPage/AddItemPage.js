@@ -183,20 +183,6 @@ export const AddItemPage = () => {
                   required
                 />
               </div>
-
-              <div className="m-4">
-                <h6 className="d-flex justify-content-start">Supplier</h6>
-                <TextField
-                  inputRef={supplierRef}
-                  id="outlined-basic"
-                  label="Supplier"
-                  variant="outlined"
-                  type="text"
-                  className="form-control shadow w-100"
-                  name="supplierName"
-                  required
-                />
-              </div>
             </div>
 
             <div>

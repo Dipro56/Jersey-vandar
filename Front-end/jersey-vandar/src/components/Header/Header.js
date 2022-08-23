@@ -27,7 +27,7 @@ export const Header = () => {
             <Nav.Link href="/" className="fs-5 link-color">
               Home
             </Nav.Link>
-            <Nav.Link href="/item" className="fs-5 link-color">
+            <Nav.Link href={`/item/${user.uid}`} className="fs-5 link-color">
               Items
             </Nav.Link>
 

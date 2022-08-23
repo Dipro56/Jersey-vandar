@@ -22,22 +22,22 @@ exports.CreateItem = (req, res) => {
   }
 };
 
-// exports.EeventDetails = (req, res) => {
-//   const query = {};
-//   EventModel.EventSchema.find(query, (err, data) => {
-//     if (err) {
-//       res.status(400).json({ status: 'fail,', data: err });
-//     } else {
-//       // next line shows all event data
-//       // console.log(data);
-//       // res.status(200).json({ status: 'success,', data: data });
-//       res.send(data);
-//     }
-//   });
-//   // EventModel.GetEventData.fetchData((data) => {
-//   //   res.send(data);
-//   // });
-// };
+exports.GetAllItems = (req, res) => {
+  const query = {};
+  ItemsModel.ItemsSchema.find(query, (err, data) => {
+    if (err) {
+      res.status(400).json({ status: 'fail,', data: err });
+    } else {
+      // next line shows all event data
+      // console.log(data);
+      // res.status(200).json({ status: 'success,', data: data });
+      res.send(data);
+    }
+  });
+  // EventModel.GetEventData.fetchData((data) => {
+  //   res.send(data);
+  // });
+};
 
 // exports.DeleteEventByID = (req, res) => {
 //   const id = req.body._id;

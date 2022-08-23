@@ -8,5 +8,6 @@ router.get('/', (req, res) => {
 
 //items routes
 router.post('/addItems/:id', ItemsController.CreateItem);
+router.get('/getAllItems', ItemsController.GetAllItems);
 
 module.exports = router;
