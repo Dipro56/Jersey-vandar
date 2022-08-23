@@ -32,21 +32,30 @@ export const Header = () => {
             </Nav.Link>
 
             {user.uid ? (
-              <Nav.Link href="/manageItem" className="fs-5 link-color">
+              <Nav.Link
+                href={`/manageItems/${user.uid}`}
+                className="fs-5 link-color"
+              >
                 Manage Items
               </Nav.Link>
             ) : (
               <p>{}</p>
             )}
             {user.uid ? (
-              <Nav.Link href="/addItem" className="fs-5 link-color">
+              <Nav.Link
+                href={`/addItems/${user.uid}`}
+                className="fs-5 link-color"
+              >
                 Add Item
               </Nav.Link>
             ) : (
               <p>{}</p>
             )}
             {user.uid ? (
-              <Nav.Link href="/myItems" className="fs-5 link-color">
+              <Nav.Link
+                href={`/myItems/${user.uid}`}
+                className="fs-5 link-color"
+              >
                 My Items
               </Nav.Link>
             ) : (

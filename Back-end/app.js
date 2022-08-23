@@ -11,20 +11,20 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 //database import
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 app.use(cors());
 
 //body parser
 app.use(bodyParser.json());
 
-// const URI = 'mongodb://127.0.0.1:27017/VoluntHub';
-// const OPTION = { user: '', pass: '' };
+const URI = 'mongodb://127.0.0.1:27017/JerseyVandar';
+const OPTION = { user: '', pass: '' };
 
-// mongoose.connect(URI, OPTION, (err) => {
-//   if (err) console.log(err);
-//   else console.log('Database successfully connected');
-// });
+mongoose.connect(URI, OPTION, (err) => {
+  if (err) console.log(err);
+  else console.log('Database successfully connected');
+});
 
 //router implement
 app.use(router);

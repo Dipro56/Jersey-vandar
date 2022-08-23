@@ -14,10 +14,14 @@ import Select from '@mui/material/Select';
 import { Header } from '../../components/Header/Header';
 import { useFirebase } from '../../hooks/useFirebase';
 
+import axios from 'axios';
+import cogoToast from 'cogo-toast';
+
 export const AddItemPage = () => {
   const { user } = useFirebase();
 
   const { id } = useParams();
+
   const [description, setDescription] = useState('');
 
   const handleMessageChange = (event) => {
@@ -30,6 +34,7 @@ export const AddItemPage = () => {
   const priceRef = useRef('');
   const supplierRef = useRef('');
   const imageURLRef = useRef('');
+  const quantityRef = useRef('');
 
   const [category, setCatrgory] = useState('');
   const [open, setOpen] = React.useState(false);
@@ -55,18 +60,35 @@ export const AddItemPage = () => {
     const imageURL = imageURLRef.current.value;
     const addedById = user.uid;
     const addedByEmail = user.email;
+    const quantity = quantityRef.current.value;
+    const supplier = supplierRef.current.value;
 
     const addedItem = {
       itemName,
       category,
-      description,
       price,
+      quantity,
       imageURL,
+      supplier,
       addedById,
       addedByEmail,
+      description,
     };
 
     console.log(addedItem);
+
+    const URL = `http://localhost:5000/addItems/${id}`;
+
+    axios
+      .post(URL, addedItem)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    cogoToast.success('Item added successfully');
   };
 
   return (
@@ -115,7 +137,10 @@ export const AddItemPage = () => {
                 </Select>
               </FormControl>
               <Button sx={{ display: 'block' }} onClick={handleOpen}></Button>
-              <div>
+            </div>
+
+            <div className="d-flex">
+              <div className="mt-4 mb-4">
                 <h6 className="d-flex justify-content-start">Image URL</h6>
                 <TextField
                   inputRef={imageURLRef}
@@ -125,6 +150,20 @@ export const AddItemPage = () => {
                   type="text"
                   className="form-control shadow w-100"
                   name="ImageURL"
+                  required
+                />
+              </div>
+
+              <div className="m-4">
+                <h6 className="d-flex justify-content-start">Quantity</h6>
+                <TextField
+                  inputRef={quantityRef}
+                  id="outlined-basic"
+                  label="Quantity"
+                  variant="outlined"
+                  type="text"
+                  className="form-control shadow w-100"
+                  name="quantity"
                   required
                 />
               </div>
