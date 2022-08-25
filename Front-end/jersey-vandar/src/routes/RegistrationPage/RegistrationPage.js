@@ -8,6 +8,8 @@ import cogoToast from 'cogo-toast';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { getAuth } from 'firebase/auth';
 import app from '../../firebase.init';
+import './RegistrationPage.css';
+import { Footer } from '../../components/Footer/Footer';
 
 const auth = getAuth(app);
 
@@ -69,9 +71,9 @@ export const RegistrationPage = () => {
   };
 
   return (
-    <div>
+    <div className="registration-background pb-xxl-5">
       <Header />
-      <div className="mt-3 col-lg-4 col-md-8 col-sm-12 bg-white shadow justify-content-center align-items-center container pt-1 ps-5 pe-5 pb-4">
+      <div className="mt-3 col-lg-4 col-md-8 col-sm-12 bg-white shadow justify-content-center align-items-center container pt-1 ps-5 pe-5 pb-4 registration-opacity">
         <div>
           <img src={logo} alt="" width="150" height="100" />
           <h4 className="mt-3 ">Registration</h4>
@@ -160,6 +162,7 @@ export const RegistrationPage = () => {
           </p>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

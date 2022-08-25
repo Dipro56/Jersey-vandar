@@ -1,0 +1,9 @@
+.registration-background {
+  background-image: url('../../assets/background_image/register_page_bg.jpg');
+  background-repeat: no-repeat;  
+  background-size: cover;
+}
+
+.registration-opacity{
+  opacity: .965;
+}

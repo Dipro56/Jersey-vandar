@@ -2,7 +2,8 @@ import React from 'react';
 import { Banner } from '../../components/Banner/Banner';
 import { Footer } from '../../components/Footer/Footer';
 import { Header } from '../../components/Header/Header';
-import Messi from '../../assets/homepage_image/messi.jpg';
+// import Messi from '../../assets/homepage_image/messi.jpg';
+import transparent from '../../assets/background_image/transparent.png';
 
 import './HomePage.css';
 
@@ -23,9 +24,9 @@ export const HomePage = () => {
             </p>
           </div>
         </div>
-        <div className="col-lg-4 col-md-5 col-sm-8  ">
+        <div className="col-lg-4 col-md-5 col-sm-8 test">
           <img
-            src={Messi}
+            src={transparent}
             className="d-inline-block align-top img-fluid"
             alt="React Bootstrap logo"
           />

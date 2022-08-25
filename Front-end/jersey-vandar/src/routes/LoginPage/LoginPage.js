@@ -13,6 +13,8 @@ import { sendPasswordResetEmail } from 'firebase/auth';
 import { getAuth } from 'firebase/auth';
 import { sendEmailVerification } from 'firebase/auth';
 import app from '../../firebase.init';
+import './LoginPage.css';
+import { Footer } from '../../components/Footer/Footer';
 
 const auth = getAuth(app);
 
@@ -92,10 +94,10 @@ export const LoginPage = () => {
   };
 
   return (
-    <div>
+    <div className="login-background pb-5">
       <Header />
-      <div className="mt-3 col-lg-4 col-md-8 col-sm-12 bg-white shadow justify-content-center align-items-center container pt-1 ps-5 pe-5 pb-4">
-        <div>
+      <div className="mt-3 col-lg-4 col-md-8 col-sm-12 bg-white shadow justify-content-center align-items-center container pt-1 ps-5 pe-5 pb-4 login-opacity">
+        <div className="login-card ">
           <img src={logo} alt="" width="150" height="100" />
           <h4 className="mt-3 ">Login</h4>
           <form onSubmit={loginFormController}>
@@ -155,7 +157,6 @@ export const LoginPage = () => {
             </button>
           </form>
 
-          {/* {errorMessage ? <p className="text-danger">{errorMessage}</p> : <></>} */}
           <div className="d-flex mt-3 mb-3">
             <hr className="w-50 ms-3 me-3" />
             <p>Or</p>
@@ -190,6 +191,7 @@ export const LoginPage = () => {
           </p>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

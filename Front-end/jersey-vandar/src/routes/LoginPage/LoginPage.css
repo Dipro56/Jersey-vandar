@@ -1,0 +1,9 @@
+.login-background {
+  background-image: url('../../assets/background_image/login_page_bg.jpg');
+  background-repeat: no-repeat;  
+  background-size: cover;
+}
+
+.login-opacity{
+  opacity: .9;
+}

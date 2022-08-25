@@ -17,6 +17,8 @@ import { useFirebase } from '../../hooks/useFirebase';
 import axios from 'axios';
 import cogoToast from 'cogo-toast';
 
+import './AddItemPage.css';
+
 export const AddItemPage = () => {
   const { user } = useFirebase();
 
@@ -94,7 +96,7 @@ export const AddItemPage = () => {
   return (
     <div>
       <Header id={id} />
-      <div className="mt-5 col-lg-4 col-md-8 col-sm-12 bg-white shadow justify-content-center align-items-center container pt-1 ps-5 pe-5 pb-4">
+      <div className="mt-5 col-lg-4 col-md-8 col-sm-12 bg-white shadow justify-content-center align-items-center container pt-1 ps-5 pe-5 pb-4 addItem">
         <div>
           <h4 className="mt-3 ">Add item</h4>
           <form onSubmit={addItemController}>

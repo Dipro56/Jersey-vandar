@@ -6,3 +6,20 @@
   text-align: start;
 }
 
+@keyframes cr7 {
+   0% { 
+    background-image: url('../../assets/background_image/acr7_1.png');
+  }
+  25%  { background-image: url('../../assets/background_image/acr7_2.png');}
+  50%  { background-image: url('../../assets/background_image/acr7_3.png');}
+  75% { background-image: url('../../assets/background_image/acr7_4.png');}
+  100% { 
+    background-image: url('../../assets/background_image/acr7_1.png');
+  }
+}
+
+.test {
+  animation: cr7 16s infinite;
+  background-repeat: no-repeat;  
+  background-color: white
+}
