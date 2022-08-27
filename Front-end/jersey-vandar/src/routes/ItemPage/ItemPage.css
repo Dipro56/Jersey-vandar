@@ -19,6 +19,6 @@
   }
 }
 
-.addItem{
+.item-slide-in{
   animation: slideIn .7s ease-in ;
 }

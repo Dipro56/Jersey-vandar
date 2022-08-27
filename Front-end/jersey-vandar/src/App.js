@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import { RegistrationPage } from './routes/RegistrationPage/RegistrationPage';
 import { AddItemPage } from './routes/AddItemPage/AddItemPage';
 import { ItemPage } from './routes/ItemPage/ItemPage';
+import { MyItemsPage } from './routes/MyItemsPage/MyItemsPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/item/:id" element={<ItemPage />} />
         <Route path="/addItems/:id" element={<AddItemPage />} />
+        <Route path="/myItems/:id" element={<MyItemsPage />} />
       </Routes>
     </div>
   );
