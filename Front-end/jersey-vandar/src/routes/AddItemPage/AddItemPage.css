@@ -22,3 +22,14 @@
 .addItem{
   animation: slideIn .7s ease-in ;
 }
+
+
+.addItem-background {
+  background-image: url('../../assets/background_image/add_item.png');
+  background-repeat: no-repeat;  
+  background-size: cover;
+}
+
+.addItem-opacity{
+  opacity: .95;
+}

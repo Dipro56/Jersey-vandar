@@ -1,4 +1,4 @@
-// import axios from 'axios';
+import axios from 'axios';
 import React from 'react';
 import DataTable from 'react-data-table-component';
 
@@ -19,9 +19,18 @@ export const MyItemsTable = () => {
     setOpen(true);
   };
 
-  const handleYes = (id) => {
+  const handleYes = (itemId) => {
     setOpen(false);
-    console.log('id', id);
+    console.log('id', itemId);
+    const URL = `http://localhost:5000/deleteItem/${itemId}`;
+    axios
+      .post(URL)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const handleNo = () => {
@@ -92,9 +101,7 @@ export const MyItemsTable = () => {
             onClose={handleNo}
             aria-describedby="alert-dialog-slide-description"
           >
-            <DialogTitle>
-              {`You are going to delete ${row.itemName}`}
-            </DialogTitle>
+            <DialogTitle>{`You are going to delete an item`}</DialogTitle>
             <DialogContent>
               <DialogContentText id="alert-dialog-slide-description">
                 Are you sure?

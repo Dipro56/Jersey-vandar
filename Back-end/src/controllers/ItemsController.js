@@ -39,23 +39,24 @@ exports.GetAllItems = (req, res) => {
   // });
 };
 
-// exports.DeleteEventByID = (req, res) => {
-//   const id = req.body._id;
-//   console.log('req body', id);
+exports.DeleteItemID = (req, res) => {
+  //itemId
+  let id = req.params.id;
+  console.log('ID to be deleted: ', id);
 
-//   EventModel.EventSchema.deleteOne({ _id: id }, (err, data) => {
-//     console.log('Schema delete', id);
-//     if (err) {
-//       res.status(400).json({ status: 'fail,', data: err });
-//     } else {
-//       console.log(data);
-//       res.status(200).json({ status: 'success,', data: data });
-//     }
-//   });
-//   //console.log(id);
-//   // EventModel.DeleteEvent.delete((data) => {
-//   //   res.send(data);
-//   // });
-//   // EventModel.DeleteEvent.delete(id);
-//   // res.send(`ID to be deleted: ${_id}`);
-// };
+  ItemsModel.ItemsSchema.deleteOne({ _id: id }, (err, data) => {
+    console.log('Schema delete', id);
+    if (err) {
+      res.status(400).json({ status: 'fail,', data: err });
+    } else {
+      console.log(data);
+      res.status(200).json({ status: 'success,', data: data });
+    }
+  });
+  //console.log(id);
+  // EventModel.DeleteEvent.delete((data) => {
+  //   res.send(data);
+  // });
+  // EventModel.DeleteEvent.delete(id);
+  // res.send(`ID to be deleted: ${id}`);
+};

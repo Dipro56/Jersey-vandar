@@ -94,9 +94,9 @@ export const AddItemPage = () => {
   };
 
   return (
-    <div>
+    <div className="addItem-background">
       <Header id={id} />
-      <div className="mt-5 col-lg-4 col-md-8 col-sm-12 bg-white shadow justify-content-center align-items-center container pt-1 ps-5 pe-5 pb-4 addItem">
+      <div className="mt-5 col-lg-4 col-md-8 col-sm-12 bg-white shadow justify-content-center align-items-center container pt-1 ps-5 pe-5 pb-4 addItem addItem-opacity">
         <div>
           <h4 className="mt-3 ">Add item</h4>
           <form onSubmit={addItemController}>
