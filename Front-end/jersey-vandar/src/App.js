@@ -7,6 +7,7 @@ import { RegistrationPage } from './routes/RegistrationPage/RegistrationPage';
 import { AddItemPage } from './routes/AddItemPage/AddItemPage';
 import { ItemPage } from './routes/ItemPage/ItemPage';
 import { MyItemsPage } from './routes/MyItemsPage/MyItemsPage';
+import { ManageItemPage } from './routes/ManageItemPage/ManageItemPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/item/:id" element={<ItemPage />} />
         <Route path="/addItems/:id" element={<AddItemPage />} />
         <Route path="/myItems/:id" element={<MyItemsPage />} />
+        <Route path="/manageItems/:id" element={<ManageItemPage />} />
       </Routes>
     </div>
   );
