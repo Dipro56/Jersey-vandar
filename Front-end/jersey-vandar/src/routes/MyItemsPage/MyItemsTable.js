@@ -12,6 +12,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
+import { FaRegTrashAlt } from 'react-icons/fa';
+
 export const MyItemsTable = () => {
   const [open, setOpen] = React.useState(false);
 
@@ -93,7 +95,7 @@ export const MyItemsTable = () => {
             // onClick={() => console.log(row._id)}
             onClick={handleClickOpen}
           >
-            Delete
+            <FaRegTrashAlt size={15} />
           </button>
           <Dialog
             open={open}
