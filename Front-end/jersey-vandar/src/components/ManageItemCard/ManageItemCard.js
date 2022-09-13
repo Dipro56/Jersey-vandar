@@ -1,9 +1,19 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const ManageItemCard = (props) => {
   console.log(props.itemData);
+  const { id } = useParams();
+
   const { _id, itemName, category, quantity, imageURL, addedByEmail } =
     props.itemData;
+
+  const navigate = useNavigate();
+
+  const updateRoute = () => {
+    navigate(`/updateItems/${id}}/${_id}`);
+  };
   return (
     <div className="col-lg-4 col-md-6 col-sm-12 mt-3 mb-3">
       <div class="card w-100 h-100 card-for-hover ">
@@ -27,7 +37,9 @@ export const ManageItemCard = (props) => {
             Supplier mail: {addedByEmail}
           </p>
         </div>
-        <button className="btn btn-primary">Update</button>
+        <button onClick={updateRoute} className="btn btn-primary">
+          Update
+        </button>
       </div>
     </div>
   );

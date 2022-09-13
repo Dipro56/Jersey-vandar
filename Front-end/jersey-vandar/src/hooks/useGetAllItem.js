@@ -14,8 +14,6 @@ export const useGetAllItem = () => {
   useEffect(() => {
     axios.get(URL).then((res) => {
       setItems(res.data);
-      console.log('uid', user.uid);
-
       // console.log(items);
     });
   }, []);

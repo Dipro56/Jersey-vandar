@@ -13,6 +13,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
 import { FaRegTrashAlt } from 'react-icons/fa';
+import { FaPencilAlt } from 'react-icons/fa';
 
 export const MyItemsTable = () => {
   const [open, setOpen] = React.useState(false);
@@ -82,7 +83,7 @@ export const MyItemsTable = () => {
             console.log(`Edit product ${row._id}`);
           }}
         >
-          Edit
+          <FaPencilAlt size={14} />
         </button>
       ),
     },
@@ -95,7 +96,7 @@ export const MyItemsTable = () => {
             // onClick={() => console.log(row._id)}
             onClick={handleClickOpen}
           >
-            <FaRegTrashAlt size={15} />
+            <FaRegTrashAlt size={14} />
           </button>
           <Dialog
             open={open}

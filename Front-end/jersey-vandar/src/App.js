@@ -8,6 +8,7 @@ import { AddItemPage } from './routes/AddItemPage/AddItemPage';
 import { ItemPage } from './routes/ItemPage/ItemPage';
 import { MyItemsPage } from './routes/MyItemsPage/MyItemsPage';
 import { ManageItemPage } from './routes/ManageItemPage/ManageItemPage';
+import { UpdateItemPage } from './routes/UpdateItemPage/UpdateItemPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/addItems/:id" element={<AddItemPage />} />
         <Route path="/myItems/:id" element={<MyItemsPage />} />
         <Route path="/manageItems/:id" element={<ManageItemPage />} />
+        <Route path="/updateItems/:id/:pID" element={<UpdateItemPage />} />
       </Routes>
     </div>
   );

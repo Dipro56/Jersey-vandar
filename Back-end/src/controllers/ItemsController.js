@@ -39,6 +39,25 @@ exports.GetAllItems = (req, res) => {
   // });
 };
 
+exports.GetItemToUpdate = (req, res) => {
+  let id = req.params.pID;
+  console.log(id);
+  ItemsModel.ItemsSchema.find({ _id: id }, (err, data) => {
+    if (err) {
+      res.status(400).json({ status: 'fail,', data: err });
+    } else {
+      // next line shows all event data
+      // console.log(data);
+      // res.status(200).json({ status: 'success,', data: data });
+      console.log(data);
+      res.send(data);
+    }
+  });
+  // EventModel.GetEventData.fetchData((data) => {
+  //   res.send(data);
+  // });
+};
+
 exports.DeleteItemID = (req, res) => {
   //itemId
   let id = req.params.id;
