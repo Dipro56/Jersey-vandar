@@ -22,7 +22,7 @@ export const ManageItemCard = (props) => {
           <div className="d-flex justify-content-start">
             <h4 className="text-start">Title: {itemName} </h4>
           </div>
-          <p className="d-flex justify-content-start text-start">
+          <p className="d-flex justify-content-start text-start overflow-auto">
             Product ID: {_id}
           </p>
           <h5 className="justify-content-start d-flex">
@@ -33,11 +33,11 @@ export const ManageItemCard = (props) => {
             Quantity: {quantity}
           </p>
           <h5 className="justify-content-start d-flex text-start">Supplier</h5>
-          <p className="justify-content-start d-flex text-start">
+          <p className="justify-content-start d-flex text-start overflow-auto">
             Supplier mail: {addedByEmail}
           </p>
         </div>
-        <button onClick={updateRoute} className="btn btn-primary">
+        <button onClick={updateRoute} className="btn btn-primary ">
           Update
         </button>
       </div>

@@ -18,6 +18,16 @@ export const useGetAllItem = () => {
     });
   }, []);
 
+  const footballItems = items.filter((item) => {
+    return item.category === 'Football';
+  });
+
+  const cricketItems = items.filter((item) => {
+    return item.category === 'Cricket';
+  });
+
+  const homeItems = items.slice(0, 6);
+
   // const myItem = items.filter((item) => {
   //   return item.addedById === user.uid;
   // });
@@ -25,5 +35,8 @@ export const useGetAllItem = () => {
   // console.log('my Items', myItems);
   return {
     items,
+    footballItems,
+    cricketItems,
+    homeItems,
   };
 };

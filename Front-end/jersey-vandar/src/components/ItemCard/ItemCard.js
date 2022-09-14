@@ -22,7 +22,7 @@ export const ItemCard = (props) => {
           <div className="d-flex justify-content-start">
             <h4 className="text-start">Title: {itemName} </h4>
           </div>
-          <p className="d-flex justify-content-start text-start">
+          <p className="d-flex justify-content-start text-start overflow-auto">
             Product ID: {_id}
           </p>
           <h5 className="justify-content-start d-flex">
@@ -38,10 +38,10 @@ export const ItemCard = (props) => {
             Quantity: {quantity}
           </p>
           <h5 className="justify-content-start d-flex text-start">Supplier</h5>
-          <p className="justify-content-start d-flex text-start">
+          <p className="justify-content-start d-flex text-start overflow-auto">
             Supplier mail: {addedByEmail}
           </p>
-          <p className="justify-content-start d-flex text-start">
+          <p className="justify-content-start d-flex text-start overflow-auto">
             Supplier ID: {addedById}
           </p>
         </div>

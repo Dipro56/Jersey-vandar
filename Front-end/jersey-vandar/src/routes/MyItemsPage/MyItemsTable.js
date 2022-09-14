@@ -14,6 +14,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 import { FaRegTrashAlt } from 'react-icons/fa';
 import { FaPencilAlt } from 'react-icons/fa';
+import { useLocation } from 'react-router-dom';
 
 export const MyItemsTable = () => {
   const [open, setOpen] = React.useState(false);
@@ -22,22 +23,34 @@ export const MyItemsTable = () => {
     setOpen(true);
   };
 
+  const location = useLocation();
+
+  const { user } = useFirebase();
+
+  const { items } = useGetAllItem();
+
+  let myItems = items.filter((item) => {
+    return item.addedById === user.uid;
+  });
+
   const handleYes = (itemId) => {
     setOpen(false);
     console.log('id', itemId);
-    const URL = `http://localhost:5000/deleteItem/${itemId}`;
-    axios
-      .post(URL)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // const URL = `http://localhost:5000/deleteItem/${itemId}`;
+    // axios
+    //   .post(URL)
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+    // window.location.reload(true);
   };
 
   const handleNo = () => {
     setOpen(false);
+    location.reload();
   };
 
   const columns = [
@@ -78,9 +91,8 @@ export const MyItemsTable = () => {
       cell: (row) => (
         <button
           className="btn btn-sm btn-success fs-6"
-          // onClick={() => console.log(row._id)}
           onClick={() => {
-            console.log(`Edit product ${row._id}`);
+            console.log(`Edit product ${row.itemName}`);
           }}
         >
           <FaPencilAlt size={14} />
@@ -93,7 +105,6 @@ export const MyItemsTable = () => {
         <>
           <button
             className="btn btn-sm btn-danger fs-6"
-            // onClick={() => console.log(row._id)}
             onClick={handleClickOpen}
           >
             <FaRegTrashAlt size={14} />
@@ -107,11 +118,11 @@ export const MyItemsTable = () => {
             <DialogTitle>{`You are going to delete an item`}</DialogTitle>
             <DialogContent>
               <DialogContentText id="alert-dialog-slide-description">
-                Are you sure?
+                Are you sure want to delete {row.itemName} ?
               </DialogContentText>
             </DialogContent>
             <DialogActions>
-              <Button onClick={() => handleYes(row._id)}>Yes</Button>
+              <Button onClick={() => handleYes(row.itemName)}>Yes</Button>
               <Button onClick={handleNo}>No</Button>
             </DialogActions>
           </Dialog>
@@ -119,13 +130,6 @@ export const MyItemsTable = () => {
       ),
     },
   ];
-  const { user } = useFirebase();
-
-  const { items } = useGetAllItem();
-
-  const myItems = items.filter((item) => {
-    return item.addedById === user.uid;
-  });
 
   return (
     <div className="container">

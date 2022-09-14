@@ -1,5 +1,6 @@
 import React from 'react';
 import Background from '../../assets/banner_image/jv_cover.gif';
+import Nav from 'react-bootstrap/Nav';
 
 export const Banner = () => {
   return (
@@ -25,7 +26,9 @@ export const Banner = () => {
                 Get premium quality jersey of your favourite team!
               </p>
               <br />
-              <button className="btn btn-warning fs-5">Our items!</button>
+              <button className="btn btn-warning fs-5">
+                <Nav.Link href="#product">Out items!</Nav.Link>
+              </button>
             </div>
           </div>
         </div>

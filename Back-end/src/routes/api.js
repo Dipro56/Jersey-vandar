@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
 router.post('/addItems/:id', ItemsController.CreateItem);
 router.get('/getAllItems', ItemsController.GetAllItems);
 router.get('/getItemToUpdate/:pID', ItemsController.GetItemToUpdate);
+router.post('/updateQuantity/:pID', ItemsController.UpdateQuantity);
 router.post('/deleteItem/:id', ItemsController.DeleteItemID);
 
 module.exports = router;

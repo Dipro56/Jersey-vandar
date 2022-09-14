@@ -58,6 +58,31 @@ exports.GetItemToUpdate = (req, res) => {
   // });
 };
 
+exports.UpdateQuantity = (req, res) => {
+  let id = req.params.pID;
+  let newQuantity = req.body.newQuantity;
+  console.log(id, newQuantity);
+  ItemsModel.ItemsSchema.updateOne(
+    { _id: id },
+    { quantity: newQuantity },
+    (err, data) => {
+      if (err) {
+        res.status(400).json({ status: 'fail,', data: err });
+      } else {
+        // next line shows all event data
+        // console.log(data);
+        // res.status(200).json({ status: 'success,', data: data });
+        console.log(data);
+        res.send(data);
+      }
+    }
+  );
+  // res.send('testing');
+  // EventModel.GetEventData.fetchData((data) => {
+  //   res.send(data);
+  // });
+};
+
 exports.DeleteItemID = (req, res) => {
   //itemId
   let id = req.params.id;
