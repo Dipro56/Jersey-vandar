@@ -1,6 +1,5 @@
 import { TextField } from '@mui/material';
 import React, { useRef, useState } from 'react';
-import { Header } from '../../components/Header/Header';
 import { ManageItemCard } from '../../components/ManageItemCard/ManageItemCard';
 import { useGetAllItem } from '../../hooks/useGetAllItem';
 import { FaSearch } from 'react-icons/fa';
@@ -32,7 +31,6 @@ export const ManageItemPage = () => {
 
   return (
     <div>
-      <Header />
       <h5 className="m-4">Search Item</h5>
       <form onSubmit={submitSearch}>
         <div className="container d-flex form-group mt-4 mb-3 col-lg-4 col-sm-6 col-sm-8">

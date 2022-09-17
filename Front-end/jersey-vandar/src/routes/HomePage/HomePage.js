@@ -1,20 +1,19 @@
 import React from 'react';
 import { Banner } from '../../components/Banner/Banner';
 import { Footer } from '../../components/Footer/Footer';
-import { Header } from '../../components/Header/Header';
 // import Messi from '../../assets/homepage_image/messi.jpg';
 import transparent from '../../assets/background_image/transparent.png';
 
 import './HomePage.css';
 import { useGetAllItem } from '../../hooks/useGetAllItem';
 import { ItemCard } from '../../components/ItemCard/ItemCard';
+import { Chart } from '../../components/Chart/Chart';
 
 export const HomePage = () => {
   const { homeItems } = useGetAllItem();
 
   return (
     <>
-      <Header />
       <Banner />
       <div className="d-flex justify-content-center align-items-center  col-12 row mt-5 mb-5">
         <div className="d-flex justify-content-center align-items-center col-lg-4 col-md-5 col-sm-8   background p-5">
@@ -46,7 +45,7 @@ export const HomePage = () => {
           ))}
         </div>
       </div>
-
+      <Chart />
       <Footer />
     </>
   );

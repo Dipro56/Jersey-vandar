@@ -11,7 +11,6 @@ import { useParams } from 'react-router-dom';
 import MenuItem from '@mui/material/MenuItem';
 
 import Select from '@mui/material/Select';
-import { Header } from '../../components/Header/Header';
 import { useFirebase } from '../../hooks/useFirebase';
 
 import axios from 'axios';
@@ -94,8 +93,7 @@ export const AddItemPage = () => {
   };
 
   return (
-    <div className="addItem-background">
-      <Header id={id} />
+    <div className="addItem-background p-5">
       <div className="mt-5 col-lg-4 col-md-8 col-sm-12 bg-white shadow justify-content-center align-items-center container pt-1 ps-5 pe-5 pb-4 addItem addItem-opacity">
         <div>
           <h4 className="mt-3 ">Add item</h4>
@@ -199,15 +197,13 @@ export const AddItemPage = () => {
             </div>
 
             <div className="mt-4 mb-4">
-              <h6 className="d-flex justify-content-start overflow-auto">
-                Added by :
-              </h6>
-              <h6 className="d-flex justify-content-start overflow-auto">
+              <h6 className="d-flex justify-content-start">Added by :</h6>
+              <p className="d-flex justify-content-start overflow-auto">
                 ID: {user.uid}
-              </h6>
-              <h6 className="d-flex justify-content-start overflow-auto">
+              </p>
+              <p className="d-flex justify-content-start overflow-auto">
                 Email: {user.email}
-              </h6>
+              </p>
             </div>
 
             <button

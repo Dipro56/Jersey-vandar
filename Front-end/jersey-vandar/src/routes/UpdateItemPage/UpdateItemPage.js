@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Header } from '../../components/Header/Header';
 import { UpdateItemCard } from '../../components/UpdateItemCard/UpdateItemCard';
 // import { useGetAllItem } from '../../hooks/useGetAllItem';
 
@@ -32,7 +31,6 @@ export const UpdateItemPage = () => {
   console.log('product id', pID);
   return (
     <div>
-      <Header />
       <div className="d-flex justify-content-center mb-5 item-slide-in">
         <div className="container row d-flex justify-content-center ">
           {updateItem?.map((data) => (

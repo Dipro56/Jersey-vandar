@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import { Header } from '../../components/Header/Header';
 import { TextField, Button } from '@mui/material';
 import logo from '../../assets/logo/jv_logo.png';
 import { Link } from 'react-router-dom';
@@ -71,8 +70,7 @@ export const RegistrationPage = () => {
   };
 
   return (
-    <div className="registration-background pb-xxl-5">
-      <Header />
+    <div className="registration-background pt-5">
       <div className="mt-3 col-lg-4 col-md-8 col-sm-12 bg-white shadow justify-content-center align-items-center container pt-1 ps-5 pe-5 pb-4 registration-opacity">
         <div>
           <img src={logo} alt="" width="150" height="100" />

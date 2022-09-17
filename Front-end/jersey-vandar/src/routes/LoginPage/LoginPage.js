@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import { Header } from '../../components/Header/Header';
 import { TextField, Button } from '@mui/material';
 import logo from '../../assets/logo/jv_logo.png';
 import googleLogo from '../../assets/logo/google_logo.png';
@@ -42,20 +41,20 @@ export const LoginPage = () => {
     });
 
   if (user) {
-    console.log(user);
+    console.log('user', user);
     if (user.user.emailVerified) {
       console.log('email verified: ', user.user.emailVerified);
-      navigate(form, { replace: true });
+      // navigate(form, { replace: true });
+      navigate(`/manageItems/${user?.uid}`);
       cogoToast.success(`Welcome ${user.user.email}`);
     } else {
-      cogoToast.error(`Mail no verifies`);
-      verifyEmail();
+      cogoToast.error(`Mail not verified`);
     }
   }
 
   if (error) {
-    cogoToast.error(`No user with this mail`);
-    console.log(error.message);
+    console.log(error);
+    cogoToast.error(`User not found`);
   }
 
   const handlePasswordReset = () => {
@@ -94,8 +93,7 @@ export const LoginPage = () => {
   };
 
   return (
-    <div className="login-background pb-5">
-      <Header />
+    <div className="login-background pt-5">
       <div className="mt-3 col-lg-4 col-md-8 col-sm-12 bg-white shadow justify-content-center align-items-center container pt-1 ps-5 pe-5 pb-4 login-opacity">
         <div className="login-card ">
           <img src={logo} alt="" width="150" height="100" />
@@ -189,6 +187,16 @@ export const LoginPage = () => {
               </Link>
             </span>
           </p>
+          <div className="d-flex justify-content-center align-items-center">
+            <p className="text-danger">
+              Verify your account if not verified
+              <span>
+                <button onClick={verifyEmail} className="btn btn-link  pb-2 ">
+                  Send verification link
+                </button>
+              </span>
+            </p>
+          </div>
         </div>
       </div>
       <Footer />

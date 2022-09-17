@@ -26,6 +26,10 @@ export const useGetAllItem = () => {
     return item.category === 'Cricket';
   });
 
+  const customeItems = items.filter((item) => {
+    return item.category === 'Custome';
+  });
+
   const homeItems = items.slice(0, 6);
 
   // const myItem = items.filter((item) => {
@@ -38,5 +42,6 @@ export const useGetAllItem = () => {
     footballItems,
     cricketItems,
     homeItems,
+    customeItems,
   };
 };
