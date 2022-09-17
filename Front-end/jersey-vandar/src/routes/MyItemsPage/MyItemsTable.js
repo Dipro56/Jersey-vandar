@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import DataTable from 'react-data-table-component';
 
 import { useFirebase } from '../../hooks/useFirebase';
@@ -14,7 +14,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 import { FaRegTrashAlt } from 'react-icons/fa';
 import { FaPencilAlt } from 'react-icons/fa';
-import { useLocation } from 'react-router-dom';
 
 export const MyItemsTable = () => {
   const [open, setOpen] = React.useState(false);
@@ -22,8 +21,6 @@ export const MyItemsTable = () => {
   const handleClickOpen = () => {
     setOpen(true);
   };
-
-  const location = useLocation();
 
   const { user } = useFirebase();
 
@@ -33,24 +30,25 @@ export const MyItemsTable = () => {
     return item.addedById === user.uid;
   });
 
+  const [itemName, setItemName] = useState('');
+  const [itemID, setItemID] = useState('');
+
   const handleYes = (itemId) => {
     setOpen(false);
-    console.log('id', itemId);
-    // const URL = `http://localhost:5000/deleteItem/${itemId}`;
-    // axios
-    //   .post(URL)
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-    // window.location.reload(true);
+    const URL = `http://localhost:5000/deleteItem/${itemID}`;
+    axios
+      .post(URL)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    window.location.reload(true);
   };
 
   const handleNo = () => {
     setOpen(false);
-    location.reload();
   };
 
   const columns = [
@@ -105,7 +103,11 @@ export const MyItemsTable = () => {
         <>
           <button
             className="btn btn-sm btn-danger fs-6"
-            onClick={handleClickOpen}
+            onClick={() => {
+              handleClickOpen();
+              setItemName(row.itemName);
+              setItemID(row._id);
+            }}
           >
             <FaRegTrashAlt size={14} />
           </button>
@@ -118,11 +120,11 @@ export const MyItemsTable = () => {
             <DialogTitle>{`You are going to delete an item`}</DialogTitle>
             <DialogContent>
               <DialogContentText id="alert-dialog-slide-description">
-                Are you sure want to delete {row.itemName} ?
+                Are you sure want to delete {itemName} ?
               </DialogContentText>
             </DialogContent>
             <DialogActions>
-              <Button onClick={() => handleYes(row.itemName)}>Yes</Button>
+              <Button onClick={handleYes}>Yes</Button>
               <Button onClick={handleNo}>No</Button>
             </DialogActions>
           </Dialog>

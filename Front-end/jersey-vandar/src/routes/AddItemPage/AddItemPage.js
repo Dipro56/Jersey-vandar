@@ -199,9 +199,13 @@ export const AddItemPage = () => {
             </div>
 
             <div className="mt-4 mb-4">
-              <h6 className="d-flex justify-content-start">Added by :</h6>
-              <h6 className="d-flex justify-content-start">ID: {user.uid}</h6>
-              <h6 className="d-flex justify-content-start">
+              <h6 className="d-flex justify-content-start overflow-auto">
+                Added by :
+              </h6>
+              <h6 className="d-flex justify-content-start overflow-auto">
+                ID: {user.uid}
+              </h6>
+              <h6 className="d-flex justify-content-start overflow-auto">
                 Email: {user.email}
               </h6>
             </div>
