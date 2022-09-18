@@ -11,6 +11,7 @@ import { ManageItemPage } from './routes/ManageItemPage/ManageItemPage';
 import { UpdateItemPage } from './routes/UpdateItemPage/UpdateItemPage';
 import { Header } from './components/Header/Header';
 import { RequiredAuth } from './routes/RequiredAuth/RequiredAuth';
+import { InboxPage } from './routes/InboxPage/InboxPage';
 
 function App() {
   return (
@@ -42,6 +43,14 @@ function App() {
           element={
             <RequiredAuth>
               <ManageItemPage />
+            </RequiredAuth>
+          }
+        />
+        <Route
+          path="/inbox/:id"
+          element={
+            <RequiredAuth>
+              <InboxPage />
             </RequiredAuth>
           }
         />

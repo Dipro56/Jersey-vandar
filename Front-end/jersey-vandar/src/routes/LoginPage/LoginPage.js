@@ -7,7 +7,7 @@ import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import cogoToast from 'cogo-toast';
 import { useFirebase } from '../../hooks/useFirebase';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { getAuth } from 'firebase/auth';
 import { sendEmailVerification } from 'firebase/auth';
@@ -31,9 +31,6 @@ export const LoginPage = () => {
   const passwordRef = useRef('');
 
   const navigate = useNavigate();
-  const location = useLocation();
-
-  let form = location.state?.form?.pathname || '/';
 
   const verifyEmail = () =>
     sendEmailVerification(auth.currentUser).then(() => {

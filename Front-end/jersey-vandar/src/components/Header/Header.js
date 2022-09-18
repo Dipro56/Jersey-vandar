@@ -24,10 +24,10 @@ export const Header = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto"></Nav>
           <Nav>
-            <Nav.Link href="/" className="fs-5 link-color">
+            <Nav.Link href="/" className="fs-6 link-color">
               Home
             </Nav.Link>
-            <Nav.Link href={`/item`} className="fs-5 link-color">
+            <Nav.Link href={`/item`} className="fs-6 link-color">
               Items
             </Nav.Link>
 
@@ -38,9 +38,9 @@ export const Header = () => {
             {user.uid ? (
               <Nav.Link
                 href={`/manageItems/${user.uid}`}
-                className="fs-5 link-color"
+                className="fs-6 link-color"
               >
-                Manage Items
+                Manage
               </Nav.Link>
             ) : (
               <p>{}</p>
@@ -48,9 +48,9 @@ export const Header = () => {
             {user.uid ? (
               <Nav.Link
                 href={`/addItems/${user.uid}`}
-                className="fs-5 link-color"
+                className="fs-6 link-color"
               >
-                Add Item
+                Add
               </Nav.Link>
             ) : (
               <p>{}</p>
@@ -58,24 +58,31 @@ export const Header = () => {
             {user.uid ? (
               <Nav.Link
                 href={`/myItems/${user.uid}`}
-                className="fs-5 link-color"
+                className="fs-6 link-color"
               >
                 My Items
               </Nav.Link>
             ) : (
               <p>{}</p>
             )}
+            {user.uid ? (
+              <Nav.Link href={`/inbox/${user.uid}`} className="fs-6 link-color">
+                Inbox
+              </Nav.Link>
+            ) : (
+              <p>{}</p>
+            )}
             {user.email ? (
-              <p className="fs-5 text-dark pt-2 ms-2 me-2">{user.email}</p>
+              <p className="fs-6 text-dark pt-2 ms-2 me-2">{user.email}</p>
             ) : (
               <p>{}</p>
             )}
             {user.uid ? (
-              <Nav.Link onClick={signOutHandle} className="fs-5 link-color">
+              <Nav.Link onClick={signOutHandle} className="fs-6 link-color">
                 Logout
               </Nav.Link>
             ) : (
-              <Nav.Link href="/login" className="fs-5 link-color">
+              <Nav.Link href="/login" className="fs-6 link-color">
                 Login
               </Nav.Link>
             )}

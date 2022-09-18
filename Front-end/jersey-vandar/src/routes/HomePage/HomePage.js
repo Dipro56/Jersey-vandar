@@ -8,6 +8,7 @@ import './HomePage.css';
 import { useGetAllItem } from '../../hooks/useGetAllItem';
 import { ItemCard } from '../../components/ItemCard/ItemCard';
 import { Chart } from '../../components/Chart/Chart';
+import { MessageCard } from '../../components/MessageCard/MessageCard';
 
 export const HomePage = () => {
   const { homeItems } = useGetAllItem();
@@ -46,6 +47,9 @@ export const HomePage = () => {
         </div>
       </div>
       <Chart />
+      <div>
+        <MessageCard />
+      </div>
       <Footer />
     </>
   );
