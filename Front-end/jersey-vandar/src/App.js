@@ -12,6 +12,7 @@ import { UpdateItemPage } from './routes/UpdateItemPage/UpdateItemPage';
 import { Header } from './components/Header/Header';
 import { RequiredAuth } from './routes/RequiredAuth/RequiredAuth';
 import { InboxPage } from './routes/InboxPage/InboxPage';
+import { ErrorPage } from './routes/ErrorPage/ErrorPage';
 
 function App() {
   return (
@@ -63,22 +64,10 @@ function App() {
           }
         />
 
-        {/* <Route path="/addItems/:id" element={<AddItemPage />} /> */}
-        {/* <Route path="/myItems/:id" element={<MyItemsPage />} /> */}
-        {/* <Route path="/manageItems/:id" element={<ManageItemPage />} /> */}
-        {/* <Route path="/updateItems/:id/:pID" element={<UpdateItemPage />} /> */}
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
   );
 }
-
-// <Route
-//   path=":id"
-//   element={
-//     <RequiredAuth>
-//       <CheckoutPage />
-//     </RequiredAuth>
-//   }
-// />;
 
 export default App;
