@@ -1,6 +1,6 @@
 # Jersey-vandar
 
-Live link [Jersey vandar](https://jersey-vandar.web.app/)
-<!-- [jersey_vandar] (https://jersey-vandar.web.app/)
- -->
+## Live link [Jersey vandar](https://jersey-vandar.web.app/)
+
+### A MERN stack project . For authenticatoin firebase is used. 
 
