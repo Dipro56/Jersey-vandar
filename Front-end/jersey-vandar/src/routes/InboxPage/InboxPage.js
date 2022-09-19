@@ -8,7 +8,7 @@ export const InboxPage = () => {
 
   const handleAllDelete = () => {
     console.log('Delete all message');
-    const URL = `http://localhost:5000/deleteAllMessage`;
+    const URL = `https://jersey-vandar-backend.herokuapp.com/deleteAllMessage`;
     axios
       .delete(URL)
       .then((res) => {

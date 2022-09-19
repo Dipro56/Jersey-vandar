@@ -77,8 +77,9 @@ export const AddItemPage = () => {
     };
 
     console.log(addedItem);
-
-    const URL = `http://localhost:5000/addItems/${id}`;
+    // https://jersey-vandar-backend.herokuapp.com/allMessage
+    // const URL = `http://localhost:5000/addItems/${id}`;
+    const URL = `https://jersey-vandar-backend.herokuapp.com/addItems/${id}`;
 
     axios
       .post(URL, addedItem)

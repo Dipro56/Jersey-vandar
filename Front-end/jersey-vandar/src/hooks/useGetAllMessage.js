@@ -4,7 +4,7 @@ import axios from 'axios';
 export const useGetAllMessage = () => {
   const [allMessage, setAllMessage] = useState([]);
 
-  const URL = `http://localhost:5000/allMessage`;
+  const URL = `https://jersey-vandar-backend.herokuapp.com/allMessage`;
 
   useEffect(() => {
     axios.get(URL).then((res) => {

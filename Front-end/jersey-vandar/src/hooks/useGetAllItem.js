@@ -9,7 +9,7 @@ export const useGetAllItem = () => {
 
   const [items, setItems] = useState([]);
 
-  const URL = `http://localhost:5000/getAllItems`;
+  const URL = `https://jersey-vandar-backend.herokuapp.com/getAllItems`;
 
   useEffect(() => {
     axios.get(URL).then((res) => {

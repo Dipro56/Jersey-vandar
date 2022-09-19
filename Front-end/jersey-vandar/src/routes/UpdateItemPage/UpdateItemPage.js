@@ -15,7 +15,7 @@ export const UpdateItemPage = () => {
   //   return item._id === pID;
   // });
 
-  const URL = `http://localhost:5000/getItemToUpdate/${pID}`;
+  const URL = `https://jersey-vandar-backend.herokuapp.com/getItemToUpdate/${pID}`;
 
   useEffect(() => {
     axios.get(URL).then((res) => {
