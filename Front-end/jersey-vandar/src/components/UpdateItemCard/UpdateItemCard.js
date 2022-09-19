@@ -39,7 +39,7 @@ export const UpdateItemCard = (props) => {
 
   const updateNewQuantity = () => {
     const pID = _id;
-    const URL = `http://localhost:5000/updateQuantity/${pID}`;
+    const URL = `https://jersey-vandar-backend.herokuapp.com/updateQuantity/${pID}`;
     const updatedQuantity = { newQuantity };
 
     axios

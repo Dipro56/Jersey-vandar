@@ -35,7 +35,7 @@ export const MyItemsTable = () => {
 
   const handleYes = (itemId) => {
     setOpen(false);
-    const URL = `http://localhost:5000/deleteItem/${itemID}`;
+    const URL = `https://jersey-vandar-backend.herokuapp.com/deleteItem/${itemID}`;
     axios
       .post(URL)
       .then((res) => {
